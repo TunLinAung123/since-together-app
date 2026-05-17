@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class CoupleRepository {
@@ -50,5 +51,18 @@ class CoupleRepository {
         .or('user1_id.eq.$userId,user2_id.eq.$userId')
         .not('user2_id', 'is', null)
         .maybeSingle();
+  }
+
+  Future<void> setAnniversaryDate(String coupleId, DateTime date) async {
+    try {
+      await _client
+          .from('couples')
+          .update({'anniversary_date': date.toIso8601String().split('T').first})
+          .eq('id', coupleId);
+      debugPrint('Anniversary updated: $coupleId');
+    } catch (e) {
+      debugPrint('Anniversary update error: $e');
+      rethrow;
+    }
   }
 }

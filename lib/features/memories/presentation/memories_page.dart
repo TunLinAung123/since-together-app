@@ -143,8 +143,14 @@ class _EmptyState extends StatelessWidget {
 
           ElevatedButton.icon(
             onPressed: onUpload,
-            icon: const Icon(Icons.add_photo_alternate_outlined),
-            label: const Text('Add Photo'),
+            style: ElevatedButton.styleFrom(
+              padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 14),
+            ),
+            icon: const Icon(Icons.add_photo_alternate_outlined, size: 20),
+            label: const Text(
+              'Add Photo',
+              style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+            ),
           ),
         ],
       ),

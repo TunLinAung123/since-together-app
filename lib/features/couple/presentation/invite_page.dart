@@ -159,9 +159,21 @@ class _InvitePageState extends ConsumerState<InvitePage> {
                         label: const Text('Copy'),
                       ),
                     ] else
-                      ElevatedButton(
-                        onPressed: _loading ? null : _generateCode,
-                        child: const Text('Generate My Code'),
+                      SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          onPressed: _loading ? null : _generateCode,
+                          style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(vertical: 14),
+                          ),
+                          child: const Text(
+                            'Generate My Code',
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
                       ),
                   ],
                 ),

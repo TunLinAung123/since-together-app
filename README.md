@@ -7,9 +7,9 @@ A couples app built with **Flutter** & **Supabase** — helping partners stay co
 - 🔐 Authentication (Email & Password)
 - 💑 Couple linking via invite code
 - 💬 Real-time chat
-- 📅 Anniversary countdown
-- 📸 Photo sharing _(coming soon)_
-- 🗓️ Shared calendar _(coming soon)_
+- 📅 Anniversary countdown & date picker
+- 📸 Photo sharing (Memories)
+- 🗓️ Shared calendar with events
 - 🎯 Couple goals _(coming soon)_
 
 ## Tech Stack
@@ -24,6 +24,19 @@ A couples app built with **Flutter** & **Supabase** — helping partners stay co
 | State Management | Riverpod              |
 | Navigation       | Go Router             |
 
+## 📦 Key Packages
+
+| Package                | Purpose                        |
+| ---------------------- | ------------------------------ |
+| `supabase_flutter`     | Backend, Auth, Storage         |
+| `flutter_riverpod`     | State management               |
+| `go_router`            | Navigation                     |
+| `table_calendar`       | Calendar UI                    |
+| `image_picker`         | Photo uploads from gallery     |
+| `cached_network_image` | Efficient image loading        |
+| `uuid`                 | Unique IDs for storage paths   |
+| `google_fonts`         | Typography                     |
+
 ## 📁 Architecture
 
 ```
@@ -34,9 +47,11 @@ lib/
 │   └── services/
 ├── features/
 │   ├── auth/       # Login, Register
-│   ├── couple/     # Invite & Linking
+│   ├── couple/     # Invite & Linking, Anniversary
 │   ├── chat/       # Real-time Messaging
 │   ├── countdown/  # Anniversary Countdown
+│   ├── memories/   # Photo Sharing (upload, grid, viewer)
+│   ├── calendar/   # Shared Events Calendar
 │   └── home/       # Dashboard
 └── shared/
     ├── theme/

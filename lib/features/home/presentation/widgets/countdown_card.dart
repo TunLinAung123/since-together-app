@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:since_together/core/constants/app_colors.dart';
+import 'package:since_together/features/couple/providers/couple_provider.dart';
 
-class CountdownCard extends StatelessWidget {
+class CountdownCard extends ConsumerWidget {
   const CountdownCard({super.key, this.daysTog, this.daysUntil, this.couple});
 
   final int? daysTog;
@@ -9,7 +11,7 @@ class CountdownCard extends StatelessWidget {
   final Map<String, dynamic>? couple;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final annDate = couple?['anniversary_date'];
 
     return Container(
@@ -106,7 +108,34 @@ class CountdownCard extends StatelessWidget {
           ] else ...[
             const SizedBox(height: 14),
             TextButton.icon(
-              onPressed: () {},
+              onPressed: () async {
+                final picked = await showDatePicker(
+                  context: context,
+                  initialDate: DateTime.now(),
+                  firstDate: DateTime(2000),
+                  lastDate: DateTime.now(),
+                  builder: (context, child) => Theme(
+                    data: Theme.of(context).copyWith(
+                      colorScheme: const ColorScheme.light(
+                        primary: AppColors.primary,
+                        onPrimary: Colors.white,
+                      ),
+                    ),
+                    child: child!,
+                  ),
+                );
+
+                if (picked == null) return;
+
+                final coupleId = couple?['id'];
+                if (coupleId == null) return;
+
+                await ref
+                    .read(coupleRepositoryProvider)
+                    .setAnniversaryDate(coupleId, picked);
+
+                ref.invalidate(coupleProvider);
+              },
               icon: const Icon(Icons.add, size: 14, color: AppColors.primary),
               label: const Text(
                 'Set anniversary date',
