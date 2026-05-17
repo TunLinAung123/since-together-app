@@ -24,24 +24,31 @@ A couples app built with **Flutter** & **Supabase** — helping partners stay co
 | State Management | Riverpod              |
 | Navigation       | Go Router             |
 
-## Architecture
+## 📁 Architecture
 
+\```
 lib/
-├── core/ # Constants, router, services
-├── features/ # Feature-based modules
-│ ├── auth/ # Login, register
-│ ├── couple/ # Invite & linking
-│ ├── chat/ # Real-time messaging
-│ ├── countdown/ # Anniversary countdown
+├── core/
+│ ├── constants/
+│ ├── router/
+│ └── services/
+├── features/
+│ ├── auth/ # Login, Register
+│ ├── couple/ # Invite & Linking
+│ ├── chat/ # Real-time Messaging
+│ ├── countdown/ # Anniversary Countdown
 │ └── home/ # Dashboard
-└── shared/ # Widgets, theme
+└── shared/
+├── theme/
+└── widgets/
+\```
 
 ## Getting Started
 
 1. Clone the repo
 
 ```bash
-git clone https://github.com/TunLinAung123/since-together-app.git
+git clone [https://github.com/your-username/since-together-app.git](https://github.com/TunLinAung123/since-together-app.git)
 cd together-app
 ```
 
