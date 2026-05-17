@@ -26,30 +26,30 @@ A couples app built with **Flutter** & **Supabase** — helping partners stay co
 
 ## 📁 Architecture
 
-\```
+```
 lib/
 ├── core/
-│ ├── constants/
-│ ├── router/
-│ └── services/
+│   ├── constants/
+│   ├── router/
+│   └── services/
 ├── features/
-│ ├── auth/ # Login, Register
-│ ├── couple/ # Invite & Linking
-│ ├── chat/ # Real-time Messaging
-│ ├── countdown/ # Anniversary Countdown
-│ └── home/ # Dashboard
+│   ├── auth/       # Login, Register
+│   ├── couple/     # Invite & Linking
+│   ├── chat/       # Real-time Messaging
+│   ├── countdown/  # Anniversary Countdown
+│   └── home/       # Dashboard
 └── shared/
-├── theme/
-└── widgets/
-\```
+    ├── theme/
+    └── widgets/
+```
 
 ## Getting Started
 
 1. Clone the repo
 
 ```bash
-git clone [https://github.com/your-username/since-together-app.git](https://github.com/TunLinAung123/since-together-app.git)
-cd together-app
+git clone https://github.com/TunLinAung123/since-together-app.git
+cd since-together-app
 ```
 
 2. Install dependencies
