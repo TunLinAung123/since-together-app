@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:since_together/core/constants/app_colors.dart';
+import 'package:since_together/features/calendar/presentation/calendar_page.dart';
 import 'package:since_together/features/chat/presentation/chat_page.dart';
 import 'package:since_together/features/countdown/providers/countdown_provider.dart';
 import 'package:since_together/features/couple/providers/couple_provider.dart';
 import 'package:since_together/features/home/presentation/widgets/countdown_card.dart';
 import 'package:since_together/features/home/presentation/widgets/feature_card.dart';
+import 'package:since_together/features/memories/presentation/memories_page.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
@@ -84,14 +86,20 @@ class HomeBody extends ConsumerWidget {
               FeatureCard(
                 icon: Icons.photo_library_outlined,
                 label: 'Memories',
-                subTitle: 'Coming soon',
-                onTap: () {},
+                subTitle: 'Our photos',
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const MemoriesPage()),
+                ),
               ),
               FeatureCard(
                 icon: Icons.calendar_month_outlined,
                 label: 'Calendar',
-                subTitle: 'Coming soon',
-                onTap: () {},
+                subTitle: 'Our events',
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const CalendarPage()),
+                ),
               ),
               FeatureCard(
                 icon: Icons.favorite_border_rounded,
