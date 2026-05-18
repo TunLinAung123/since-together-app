@@ -5,8 +5,10 @@ import 'package:since_together/features/calendar/presentation/calendar_page.dart
 import 'package:since_together/features/chat/presentation/chat_page.dart';
 import 'package:since_together/features/countdown/providers/countdown_provider.dart';
 import 'package:since_together/features/couple/providers/couple_provider.dart';
-import 'package:since_together/features/home/presentation/widgets/countdown_card.dart';
+import 'package:since_together/features/countdown/presentation/widgets/countdown_card.dart';
+import 'package:since_together/features/goals/presentation/goals_page.dart';
 import 'package:since_together/features/home/presentation/widgets/feature_card.dart';
+import 'package:since_together/features/location/presentation/location_page.dart';
 import 'package:since_together/features/memories/presentation/memories_page.dart';
 
 class HomePage extends ConsumerWidget {
@@ -56,7 +58,7 @@ class HomeBody extends ConsumerWidget {
           Text(
             '$user1Name & $user2Name 💕',
             style: const TextStyle(
-              fontSize: 22,
+              fontSize: 20,
               fontWeight: FontWeight.w700,
               color: AppColors.textDark,
             ),
@@ -104,8 +106,20 @@ class HomeBody extends ConsumerWidget {
               FeatureCard(
                 icon: Icons.favorite_border_rounded,
                 label: 'Goals',
-                subTitle: 'Coming soon',
-                onTap: () {},
+                subTitle: 'Our bucket list',
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const GoalsPage()),
+                ),
+              ),
+              FeatureCard(
+                icon: Icons.location_on_outlined,
+                label: 'Location',
+                subTitle: 'Find each other',
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const LocationPage()),
+                ),
               ),
             ],
           ),
