@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:since_together/core/constants/app_colors.dart';
+import 'package:since_together/core/services/notification_service.dart';
 import 'package:since_together/features/calendar/presentation/calendar_page.dart';
 import 'package:since_together/features/chat/presentation/chat_page.dart';
 import 'package:since_together/features/countdown/providers/countdown_provider.dart';
@@ -43,6 +44,13 @@ class HomeBody extends ConsumerWidget {
 
     final user1Name = couple?['user1']?['display_name'] ?? 'Unknown';
     final user2Name = couple?['user2']?['display_name'] ?? 'Unknown';
+
+    if (daysTog != null) {
+      NotificationService.scheduleDailyCountdown(
+        daysTogether: daysTog,
+        daysUntilAnniversary: daysUntil,
+      );
+    }
 
     return SingleChildScrollView(
       padding: const EdgeInsets.all(20),
@@ -120,6 +128,12 @@ class HomeBody extends ConsumerWidget {
                   context,
                   MaterialPageRoute(builder: (_) => const LocationPage()),
                 ),
+              ),
+              FeatureCard(
+                icon: Icons.notification_add_outlined,
+                label: 'Test',
+                subTitle: 'Test Notification',
+                onTap: () => NotificationService.testNotification(),
               ),
             ],
           ),
